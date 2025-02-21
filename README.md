@@ -69,30 +69,19 @@ Make sure to add these properties to the JSON file when adding a new task and up
 
 Here are a few steps to help you get started with the Task Tracker CLI project:
 
-## Set Up Your Development Environment
+- Have Python installed and running on your machine
+- Install any required dependencies (if applicable).
+- Run the script to start adding and managing tasks.
 
-- Choose a programming language you are comfortable with (e.g., Python, JavaScript, etc.).
-- Ensure you have a code editor or IDE installed (e.g., VSCode, PyCharm).
-
-## Project Initialization
-
-- Create a new project directory for your Task Tracker CLI.
-- Initialize a version control system (e.g., Git) to manage your project.
-
-## Implementing Features
-
-- Start by creating a basic CLI structure to handle user inputs.
-- Implement each feature one by one, ensuring to test thoroughly before moving to the next e.g. implement adding task functionality first, listing next, then updating, marking as in progress, etc.
+It's that easy and simple the rest is you'll be redirected to a custom made command line interface.
 
 ## Testing and Debugging
 
-- Test each feature individually to ensure they work as expected. Look at the JSON file to verify that the tasks are being stored correctly.
-- Debug any issues that arise during development.
+- Test each feature individually to confirm proper functionality.
+- Check the JSON file to verify that tasks are being stored and updated correctly.
+- Use print statements or a debugger to troubleshoot any issues.
+- If errors occur, review logs and adjust the logic as needed.
 
-## Finalizing the Project
+----------------------------------------------------------------
 
-- Ensure all features are implemented and tested.
-- Clean up your code and add comments where necessary.
-- Write a good readme file on how to use your Task Tracker CLI.
-
-By the end of this project, you will have developed a practical tool that can help you or others manage tasks efficiently. This project lays a solid foundation for more advanced programming projects and real-world applications.
+### Thank you for using my Task Tracker CLI tool 🤗🤗

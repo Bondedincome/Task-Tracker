@@ -9,7 +9,7 @@ class TaskTrackerCLI(cmd.Cmd):
 
     def do_add(self, arg):
         """Add a new task: add "task description" """
-        if not arg.strip():
+        if not arg.strip(): # checks for empty strings so as not to have junk data
             print("You need to provide a task!")
             return
 

@@ -1,5 +1,6 @@
 import cmd
 import json
+import os
 from datetime import datetime
 
 TASK_FILE = "file.json"
@@ -9,12 +10,12 @@ class TaskTrackerCLI(cmd.Cmd):
 
     def do_add(self, arg):
         """Add a new task: add "task description" """
-        if not arg.strip(): # checks for empty strings so as not to have junk data
+        if not arg.strip():
             print("You need to provide a task!")
             return
 
         prev_data = get_file(TASK_FILE)
-        task_id = max([task["id"] for task in prev_data], default=0) + 1  # Ensure unique IDs
+        task_id = max((task["id"] for task in prev_data), default=0) + 1  # Ensure unique IDs
         task = {
             "id": task_id,
             "description": arg,
@@ -28,8 +29,7 @@ class TaskTrackerCLI(cmd.Cmd):
 
     def do_list(self, arg):
         """List tasks: list [all|done|todo|in-progress]"""
-        status_filter = arg.strip().lower() if arg else "all"
-        get_list(status_filter)
+        get_list(arg.strip().lower() or "all")
 
     def do_update(self, arg):
         """Update a task: update <task_id> "new description" """
@@ -60,8 +60,11 @@ class TaskTrackerCLI(cmd.Cmd):
             return
 
         prev_data = get_file(TASK_FILE)
-        updated_data = [task for task in prev_data if task["id"] != task_id]
+        if not any(task["id"] == task_id for task in prev_data):
+            print(f"Task with ID {task_id} not found.")
+            return
 
+        updated_data = [task for task in prev_data if task["id"] != task_id]
         write_file(TASK_FILE, updated_data)
         print(f"Task {task_id} deleted successfully.")
 
@@ -99,7 +102,7 @@ class TaskTrackerCLI(cmd.Cmd):
     
     def do_clear(self, arg):
         """Clear the screen"""
-        print("\033c", end="") 
+        os.system('cls' if os.name == 'nt' else 'clear')
         print("Cleared the screen!")
 
 
